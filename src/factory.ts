@@ -117,7 +117,7 @@ export abstract class Factory<Entity> {
    * Persist one or many entities
    */
   async save(entities: Entity | Entity[], saveOptions?: SaveOptions): Promise<Entity | Entity[]> {
-    const dataSource = this.seedingSource.dataSource
+    const dataSource = await this.seedingSource.dataSource
 
     // has been initialized yet?
     if (!dataSource.isInitialized) {
